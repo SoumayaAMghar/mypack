@@ -16,7 +16,7 @@ public class Main {
 
 
 
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("mypack");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         Produits produits= new Produits();
