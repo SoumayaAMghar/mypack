@@ -10,7 +10,18 @@ public class Produits {
     private Double poids;
     private String categorie;
     private String statut;
-    private String adress;
+    private String destination;
+    @ManyToOne
+    private Clients clients;
+    public String getDestination() {
+        return destination;
+    }
+
+    public void setDestination(String destination) {
+        this.destination = destination;
+    }
+
+
 
     public Long getId() {
         return id;
@@ -44,14 +55,6 @@ public class Produits {
         this.statut = statut;
     }
 
-    public String getAdress() {
-        return adress;
-    }
-
-    public void setAdress(String adress) {
-        this.adress = adress;
-    }
-
     public Clients getClients() {
         return clients;
     }
@@ -60,7 +63,5 @@ public class Produits {
         this.clients = clients;
     }
 
-    @ManyToOne
-    private Clients clients;
 }
 
