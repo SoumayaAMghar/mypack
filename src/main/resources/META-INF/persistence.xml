@@ -6,12 +6,17 @@
     <persistence-unit name="mypack">
         <class>Entities.Clients</class>
         <class>Entities.Produits</class>
+        <class>Entities.Admin</class>
+        <class>Entities.Chauffeurs</class>
+        <class>Entities.Managers</class>
+        <class>Entities.Vehicules</class>
+        <class>Entities.Villes</class>
         <properties>
             <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3308/mypack"/>
             <property name="hibernate.connection.driver_class" value="com.mysql.cj.jdbc.Driver"/>
             <property name="hibernate.connection.username" value="user"/>
             <property name="hibernate.connection.password" value="123"/>
-            <property name="hibernate.hbm2ddl.auto" value="create"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.format_sql" value="true"/>
         </properties>

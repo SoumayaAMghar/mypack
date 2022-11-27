@@ -20,10 +20,8 @@ public class Main {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         Produits produits= new Produits();
-        produits.setAdress("Safi");
         produits.setCategorie("cloths");
         produits.setPoids(23.65);
-        produits.setStatut("delivred");
 
         entityManager.getTransaction().begin();
         entityManager.persist(produits);
