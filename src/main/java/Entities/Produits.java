@@ -7,12 +7,34 @@ public class Produits {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private Long id;
+    private String name;
     private Double poids;
     private String categorie;
-    private String statut;
+    private statut statut;
     private String destination;
+
+    public Villes getVilles() {
+        return villes;
+    }
+
+    public void setVilles(Villes villes) {
+        this.villes = villes;
+    }
+
+    public Vehicules getVehicules() {
+        return vehicules;
+    }
+
+    public void setVehicules(Vehicules vehicules) {
+        this.vehicules = vehicules;
+    }
+
     @ManyToOne
     private Clients clients;
+    @ManyToOne
+    private Villes villes;
+    @ManyToOne
+    private Vehicules vehicules;
     public String getDestination() {
         return destination;
     }
@@ -21,7 +43,9 @@ public class Produits {
         this.destination = destination;
     }
 
-
+enum statut{
+        encours, delivre
+}
 
     public Long getId() {
         return id;
@@ -39,6 +63,22 @@ public class Produits {
         this.poids = poids;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Produits.statut getStatut() {
+        return statut;
+    }
+
+    public void setStatut(Produits.statut statut) {
+        this.statut = statut;
+    }
+
     public String getCategorie() {
         return categorie;
     }
@@ -46,15 +86,6 @@ public class Produits {
     public void setCategorie(String categorie) {
         this.categorie = categorie;
     }
-
-    public String getStatut() {
-        return statut;
-    }
-
-    public void setStatut(String statut) {
-        this.statut = statut;
-    }
-
     public Clients getClients() {
         return clients;
     }
