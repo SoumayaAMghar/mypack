@@ -4,13 +4,13 @@
              xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
              version="3.0">
     <persistence-unit name="mypack">
-        <class>Entities.Clients</class>
-        <class>Entities.Produits</class>
-        <class>Entities.Admin</class>
-        <class>Entities.Chauffeurs</class>
-        <class>Entities.Managers</class>
-        <class>Entities.Vehicules</class>
-        <class>Entities.Villes</class>
+        <class>entities.ClientsEntity</class>
+        <class>entities.ProduitsEntity</class>
+        <class>entities.AdminEntity</class>
+        <class>entities.ChauffeursEntity</class>
+        <class>entities.ManagersEntity</class>
+        <class>entities.VehiculesEntity</class>
+        <class>entities.VillesEntity</class>
         <properties>
             <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3308/mypack"/>
             <property name="hibernate.connection.driver_class" value="com.mysql.cj.jdbc.Driver"/>

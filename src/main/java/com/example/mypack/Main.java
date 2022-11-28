@@ -1,12 +1,9 @@
 package com.example.mypack;
 
-import Entities.Clients;
-import Entities.Produits;
+import entities.ProduitsEntity;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
-
-import javax.swing.event.CaretListener;
 
 public class Main {
     public static void main(String[] args) {
@@ -19,7 +16,7 @@ public class Main {
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("mypack");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
-        Produits produits= new Produits();
+        ProduitsEntity produits= new ProduitsEntity();
         produits.setCategorie("cloths");
         produits.setPoids(23.65);
 

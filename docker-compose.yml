@@ -1,3 +1,5 @@
+version: "3.8"
+
 services:
     mysql:
       image: mysql:latest
@@ -29,7 +31,12 @@ services:
         - 8081:80
 
     dockerJboss:
-      image: jboss/wildfly
+      image: quay.io/wildfly/wildfly
+      ports:
+        - 8085:8080
+      volumes:
+        - ./target/mypack-1.0-SNAPSHOT.war:/opt/jboss/wildfly/standalone/deployments/ROOT.war
+
 
 # Names our volume
 volumes:

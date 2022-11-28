@@ -1,30 +1,30 @@
-package Entities;
+package entities;
 
 import jakarta.persistence.*;
 
 import java.util.List;
 
 @Entity
-public class Villes {
+public class VillesEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     @OneToOne(mappedBy = "villes")
-    private Managers managers;
+    private ManagersEntity managers;
 
     @OneToMany(mappedBy = "villes")
-    private List<Produits> produitsList;
+    private List<ProduitsEntity> produitsList;
 
     public Long getId() {
         return id;
     }
 
-    public List<Produits> getProduitsList() {
+    public List<ProduitsEntity> getProduitsList() {
         return produitsList;
     }
 
-    public void setProduitsList(List<Produits> produitsList) {
+    public void setProduitsList(List<ProduitsEntity> produitsList) {
         this.produitsList = produitsList;
     }
 
@@ -40,11 +40,11 @@ public class Villes {
         this.name = name;
     }
 
-    public Managers getManagers() {
+    public ManagersEntity getManagers() {
         return managers;
     }
 
-    public void setManagers(Managers managers) {
+    public void setManagers(ManagersEntity managers) {
         this.managers = managers;
     }
 }
