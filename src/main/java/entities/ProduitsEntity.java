@@ -1,9 +1,9 @@
-package Entities;
+package entities;
 
 import jakarta.persistence.*;
 
 @Entity
-public class Produits {
+public class ProduitsEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private Long id;
@@ -13,28 +13,28 @@ public class Produits {
     private statut statut;
     private String destination;
 
-    public Villes getVilles() {
+    public VillesEntity getVilles() {
         return villes;
     }
 
-    public void setVilles(Villes villes) {
+    public void setVilles(VillesEntity villes) {
         this.villes = villes;
     }
 
-    public Vehicules getVehicules() {
+    public VehiculesEntity getVehicules() {
         return vehicules;
     }
 
-    public void setVehicules(Vehicules vehicules) {
+    public void setVehicules(VehiculesEntity vehicules) {
         this.vehicules = vehicules;
     }
 
     @ManyToOne
-    private Clients clients;
+    private ClientsEntity clients;
     @ManyToOne
-    private Villes villes;
+    private VillesEntity villes;
     @ManyToOne
-    private Vehicules vehicules;
+    private VehiculesEntity vehicules;
     public String getDestination() {
         return destination;
     }
@@ -71,11 +71,11 @@ enum statut{
         this.name = name;
     }
 
-    public Produits.statut getStatut() {
+    public ProduitsEntity.statut getStatut() {
         return statut;
     }
 
-    public void setStatut(Produits.statut statut) {
+    public void setStatut(ProduitsEntity.statut statut) {
         this.statut = statut;
     }
 
@@ -86,11 +86,11 @@ enum statut{
     public void setCategorie(String categorie) {
         this.categorie = categorie;
     }
-    public Clients getClients() {
+    public ClientsEntity getClients() {
         return clients;
     }
 
-    public void setClients(Clients clients) {
+    public void setClients(ClientsEntity clients) {
         this.clients = clients;
     }
 

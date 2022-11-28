@@ -1,34 +1,34 @@
-package Entities;
+package entities;
 
 import jakarta.persistence.*;
 
 import java.util.List;
 
 @Entity
-public class Vehicules {
+public class VehiculesEntity {
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
    private Long id;
    private type type;
    @OneToOne
-   private Chauffeurs chauffeurs;
+   private ChauffeursEntity chauffeurs;
 
    @OneToMany(mappedBy = "vehicules")
-   private List<Produits> produitsList;
+   private List<ProduitsEntity> produitsList;
 
-   public Chauffeurs getChauffeurs() {
+   public ChauffeursEntity getChauffeurs() {
       return chauffeurs;
    }
 
-   public List<Produits> getProduitsList() {
+   public List<ProduitsEntity> getProduitsList() {
       return produitsList;
    }
 
-   public void setProduitsList(List<Produits> produitsList) {
+   public void setProduitsList(List<ProduitsEntity> produitsList) {
       this.produitsList = produitsList;
    }
 
-   public void setChauffeurs(Chauffeurs chauffeurs) {
+   public void setChauffeurs(ChauffeursEntity chauffeurs) {
       this.chauffeurs = chauffeurs;
    }
 
@@ -40,11 +40,11 @@ public class Vehicules {
       this.id = id;
    }
 
-   public Vehicules.type getType() {
+   public VehiculesEntity.type getType() {
       return type;
    }
 
-   public void setType(Vehicules.type type) {
+   public void setType(VehiculesEntity.type type) {
       this.type = type;
    }
    enum type{

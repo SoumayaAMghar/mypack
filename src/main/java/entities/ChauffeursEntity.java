@@ -1,15 +1,14 @@
-package Entities;
+package entities;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 
 @Entity
-public class Chauffeurs extends Person {
+public class ChauffeursEntity extends PersonEntity {
     private String depart;
     private String arrive;
     @OneToOne(mappedBy = "chauffeurs")
-    private Vehicules vehicules;
+    private VehiculesEntity vehicules;
 
     public String getDepart() {
         return depart;
@@ -27,11 +26,11 @@ public class Chauffeurs extends Person {
         this.arrive = arrive;
     }
 
-    public Vehicules getVehicules() {
+    public VehiculesEntity getVehicules() {
         return vehicules;
     }
 
-    public void setVehicules(Vehicules vehicules) {
+    public void setVehicules(VehiculesEntity vehicules) {
         this.vehicules = vehicules;
     }
 }
