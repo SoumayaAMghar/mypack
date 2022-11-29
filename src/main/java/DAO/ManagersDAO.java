@@ -107,7 +107,7 @@ public boolean login(String email, String password) {
 public ManagersEntity findManagersByVille(String ville) {
     EntityManager entityManager = Config.getConfig().getEntityManager();
     try {
-        TypedQuery<ManagersEntity> query = entityManager.createQuery("SELECT m FROM ManagersEntity m WHERE m.ville = :ville", ManagersEntity.class);
+        TypedQuery<ManagersEntity> query = entityManager.createQuery("SELECT m FROM ManagersEntity m WHERE m.villes = :ville", ManagersEntity.class);
         query.setParameter("ville", ville);
         return query.getSingleResult();
     } catch (Exception e) {
