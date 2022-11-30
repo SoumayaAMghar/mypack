@@ -3,6 +3,7 @@ package entities;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "produits")
 public class ProduitsEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
@@ -29,11 +30,11 @@ public class ProduitsEntity {
         this.vehicules = vehicules;
     }
 
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE})
     private ClientsEntity clients;
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE})
     private VillesEntity villes;
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE})
     private VehiculesEntity vehicules;
     public String getDestination() {
         return destination;
