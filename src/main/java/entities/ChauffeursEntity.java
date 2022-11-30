@@ -2,8 +2,10 @@ package entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "chauffeurs")
 public class ChauffeursEntity extends PersonEntity {
     private String depart;
     private String arrive;
