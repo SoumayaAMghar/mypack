@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<!--   <link rel="stylesheet" href="/css/application.css"/>-->
+<!--   <script type="text/javascript" src="https://cdn.tailwindcss.com"></script>-->
+
+<f:view>
+
+
+      <div class="h-screen bg-gradient-to-br from-blue-600 to-red-600 flex justify-center items-center w-full">
+         <h:form>
+            <div class="bg-white px-10 py-8 rounded-xl w-screen shadow-md max-w-sm">
+               <div class="space-y-4">
+                  <h1 class="text-center text-2xl font-semibold text-gray-600">Login</h1>
+                  <div class="mb-4">
+                     <h:selectOneMenu
+                             value="#{LoginBean.role}"
+                             styleClass="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                             a:placeholder="Role"
+                     >
+                        <f:selectItem itemLabel="Responsable Livraison" itemValue="respLivraison"/>
+                        <f:selectItem itemLabel="Chauffeur" itemValue="chauffeur"/>
+                        <f:selectItem itemLabel="Admin" itemValue="admin"/>
+                     </h:selectOneMenu>
+                  </div>
+                  <div>
+                     <h:outputLabel>Email</h:outputLabel>
+                     <h:inputText value="#{loginBean.email}" />
+                  </div>
+                  <div>
+                     <h:outputLabel >Password </h:outputLabel>
+                     <h:inputSecret value="#{loginBean.password }" />
+                  </div>
+               </div>
+               <h:commandButton value="Login" action="#{loginBean.loginBean}" />
+            </div>
+         </h:form>
+      </div>
+
+
+</f:view>
+</html>
