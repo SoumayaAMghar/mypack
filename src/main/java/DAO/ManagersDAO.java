@@ -1,12 +1,18 @@
 package DAO;
 
 import config.Config;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.TypedQuery;
+import jakarta.persistence.*;
 import entities.*;
 
 
 public class ManagersDAO {
+//    public ManagersDAO() {
+//        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("mypack");
+//        this.entityManager = entityManagerFactory.createEntityManager();
+//    }
+//
+//    EntityManager entityManager;
+//
 
     public boolean add(ManagersEntity manager){
         EntityManager entityManager = Config.getConfig().getEntityManager();
@@ -90,12 +96,16 @@ public ManagersEntity getAllManagers() {
 
 
 public boolean login(String email, String password) {
-    EntityManager entityManager = Config.getConfig().getEntityManager();
     try {
-        TypedQuery<ManagersEntity> query = entityManager.createQuery("SELECT m FROM ManagersEntity m WHERE m.email = :email AND m.password = :password", ManagersEntity.class);
-        query.setParameter("email", email);
+        EntityManager entityManager = Config.getConfig().getEntityManager();
+        entityManager.getTransaction().begin();
+        Query query = entityManager.createQuery("SELECT m FROM ManagersEntity m where m.email =: email AND m.password =: password", ManagersEntity.class);
+        query.setParameter("email",email);
         query.setParameter("password", password);
-        if (query.getSingleResult() != null) {
+        ManagersEntity managersEntity = (ManagersEntity) query.getSingleResult();
+        entityManager.getTransaction().commit();
+
+        if (managersEntity != null){
             return true;
         }
     } catch (Exception e) {
